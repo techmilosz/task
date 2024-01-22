@@ -1,3 +1,6 @@
+# UI
+Documentation along with swagger ui is available at `/docs`, while raw documentation (oapi.yaml) is available at `/docs/oapi`
+
 # Running
 ## Running locally - without other tools
 ```

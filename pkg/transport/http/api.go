@@ -22,6 +22,9 @@ const (
 	ParamValue = "value"
 
 	contentTypeJSON = "application/json"
+	contentTypeHTML = "text/html"
+	contentTypeYAML = "text/x-yaml"
+
 	// 4MB
 	maxRequestSize = 1024 * 1024 * 4
 
@@ -59,6 +62,7 @@ func (a *API) Run(ctx context.Context, port uint) error {
 
 	a.MountPacks(r)
 	a.MountOrder(r)
+	a.MountDocs(r)
 
 	return http.ListenAndServe(fmt.Sprintf(":%d", port), r)
 }

@@ -1,0 +1,75 @@
+openapi: 3.0.0
+info:
+  title: repartners
+  version: 1.0.0
+paths:
+  /packs:
+    get:
+      summary: Get Packs
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              example:
+                packs:
+                  - 53
+
+    post:
+      summary: Create a Pack
+      requestBody:
+        $ref: "#/components/requestBodies/CreatePackBody"
+      responses:
+        "204":
+          description: Created
+        "400":
+          description: Bad Request
+
+  /packs/{packValue}:
+    delete:
+      summary: Delete a Pack
+      parameters:
+        - name: packValue
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: No Content
+
+  /order/{orderValue}:
+    get:
+      summary: Get Order results
+      parameters:
+        - name: orderValue
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              example:
+                data:
+                  - packet: 53
+                    amount: 2
+
+components:
+  requestBodies:
+    CreatePackBody:
+      description: A JSON object containing pet information
+      required: true
+      content:
+        application/json:
+          example:
+            value: 53
+          schema:
+            type: object
+            required:
+              - value
+            properties:
+              value:
+                type: number
