@@ -60,7 +60,7 @@ paths:
 components:
   requestBodies:
     CreatePackBody:
-      description: A JSON object containing pet information
+      description: A JSON object containing pack value
       required: true
       content:
         application/json:
